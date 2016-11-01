@@ -1,50 +1,50 @@
-import React from 'react'
+import { Component } from 'react'
 import MemberInfo from './MemberInfo'
-import MemberFilters from './MemberFilters'
-import Breadcrumbs from './Breadcrumbs'
-import { saveTo, getFakeMembers, compose } from '../../lib'
+import fetch from 'isomorphic-fetch'
 import { hashHistory } from 'react-router'
 
-class Members extends React.Component {
-
+class Members extends Component {
     constructor(props) {
         super(props);
         this.state = {
             members: (sessionStorage.members) ? JSON.parse(sessionStorage.members) : [],
             loadingMembers: (sessionStorage.members) ? false : true
-        };
+        }
+        this.getMoreMembers = this.getMoreMembers.bind(this);
     }
 
     componentDidMount() {
-        if (!sessionStorage.members) {
-            getFakeMembers(100).then(
-                compose(
-                    saveTo(sessionStorage, "members"),
-                    members => this.setState({members, loadingMembers: false})
-                ),
-                error => console.error(error)
-            );
+        if(!sessionStorage.members) {
+            fetch(`https://api.randomuser.me/?nat=US&results=12`)
+                .then(response => response.json())
+                .then(members => this.setState({members: members.results,
+                                                loadingMembers: false}))
         }
+    }
+
+    getMoreMembers() {
+        fetch(`https://api.randomuser.me/?nat=US&results=12`)
+            .then(response => response.json())
+            .then(members => this.setState({members: members.results,
+                                            loadingMembers: false}))
+    }
+
+    componentWillUpdate() {
+        alert('new 12 members')
     }
 
     render() {
         const {routes, params} = this.props;
         const {members, loadingMembers} = this.state;
-        const genderRoute = params.gender || "any";
-        const stateRoute = params.state || "any";
         return <div>
-            <Breadcrumbs routes={routes}/>
-            <MemberFilters state={params.state}
-                           gender={params.gender}
-                           onGenderChange={(gender) => hashHistory.push(`/members/${gender}/${stateRoute}`)}
-                           onStateChange={(state) => hashHistory.push(`/members/${genderRoute}/${state}`)}/>
+            <h1>Society Members</h1>
             {(loadingMembers) ?
                 <span>Members Loading</span> :
                 <MemberInfo state={params.state}
                             gender={params.gender}
                             members={members}
-
                 />}
+            <button onClick={this.getMoreMembers}>Get Next Members</button>
         </div>
     }
 }
@@ -52,4 +52,4 @@ class Members extends React.Component {
 
 
 
-module.exports = Members;
+module.exports = Members

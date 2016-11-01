@@ -1,15 +1,15 @@
 import { PropTypes } from 'react'
-import {capitalize, getStateAbbrev} from '../../lib'
 
 const Member = ({id, name, email, cell, picture, location}) => (
     <div className={`member-${id.value}`}>
-        <h1>{capitalize(name.last)}, {capitalize(name.first)}</h1>
+        <h1>{name.first} {name.last}</h1>
         <img src={picture.thumbnail} alt="profile picture" />
-        <p>{capitalize(location.city)}, {getStateAbbrev(location.state)}</p>
+        <p>{location.city}, {location.state}</p>
         <p><a href={`mailto:${email}`}>{email}</a></p>
         <p>{cell}</p>
     </div>
 )
+
 
 Member.propTypes = {
     id: PropTypes.object.isRequired,

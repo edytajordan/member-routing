@@ -1,6 +1,9 @@
 html, body {
     font-family: "Architects Daughter", sans-serif;
+    min-width: 100%;
+    margin: 0;
 }
+
 
 .app {
     position: relative;
@@ -18,7 +21,7 @@ html, body {
 .home-page-menu {
     display: flex;
     flex-direction: row;
-    background-color: slategray;
+    background-color: #0C3B20;
     color: white;
     min-width: 100%;
 }
@@ -39,31 +42,34 @@ html, body {
     padding-left: 2em;
 }
 
-
 #homebox {
-    min-height: 500px;
+    color: #E1F5F5;
+    text-shadow: 5px -5px #0C3B20;
+    font-family: "Architects Daughter", sans-serif;
+    font-size: 4em;
     display: flex;
-    border: 1px darkslategray dashed;
     min-width: 100%;
-    background: linear-gradient(to bottom, slategray 0%,rgba(0,0,0,0) 100%);
+    min-height: 1000px;
+    background-image: url(https://c4.staticflickr.com/3/2851/10764957835_4ba6354087_k.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.9;
 }
 
 aside {
-    min-height: 90%;
+
     background-color: #00d4b4;
     border: 2px solid black;
 }
 
-
 .main-menu {
     display: flex;
     flex-direction: column;
-    background-color: slategray;
+    background-color: #0C3B20;
     color: white;
-    width: 20%;
-    height: 40%;
     line-height: 4em;
     min-width: 20%;
+    height: 200px;
 }
 
 .main-menu a {
@@ -75,12 +81,7 @@ aside {
 }
 
 .main-menu a:not(:first-child) {
-    border-top: 3px dashed white;
-}
-
-.breadcrumbs-list {
-    list-style-type: none;
-    display: inline-flex;
+    border-top: 3px solid white;
 }
 
 ul>li {
@@ -95,43 +96,6 @@ nav ~ div {
     min-width: 60%;
 }
 
-.about-menu {
-    list-style-type: none;
-    display: inline-flex;
-    background-color: slategray;
-    line-height: 2em;
-}
-
-.about-menu>li>a {
-    padding-left: 2em;
-    padding-right: 2em;
-    text-decoration: none;
-    color: white;
-    text-transform: uppercase;
-    min-width: 60%;
-}
-
-.gender-filters {
-    line-height: 2em;
-}
-
-
-.gender-filters>span {
-    padding-left: 1em;
-    padding-right: 1em;
-    text-transform: uppercase;
-
-}
-
-.selected {
-    color: white;
-    background-color: slategray;
-}
-
-select {
-    margin-top: 2em;
-}
-
 
 .member-info {
     display: flex;
@@ -143,8 +107,6 @@ select {
 .member-info > div {
     flex-basis: calc(33.33% - 3em);
     flex-grow: 1;
-    border-top: 1px solid gray;
-    border-bottom: 1px solid gray;
 }
 
 .member-info > h1:first-of-type {
@@ -158,11 +120,24 @@ select {
 }
 
 .member-info>div>h1 {
-    font-weight: 100;
+    font-style: bold;
     font-size: 1.5em;
+    text-transform: capitalize;
+    color: darkgreen;
 }
 
-.active {
-    background-color: slategray;
+
+.about>p {
+    font-size: 1.3em;
+}
+
+button {
+    height: 40px;
+    width: 100px;
+    position: fixed;
+    right: 0px;
+    top: 48%;
+    background-color: #006600;
     color: white;
+
 }
