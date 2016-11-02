@@ -131,7 +131,7 @@ nav ~ div {
     font-size: 1.3em;
 }
 
-button {
+.more {
     height: 40px;
     width: 100px;
     position: fixed;
