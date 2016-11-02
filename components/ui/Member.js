@@ -16,7 +16,7 @@ class Member extends Component {
     render() {
         return (
             <div className={`member-${this.props.id.value}`}>
-                <h1>{this.props.name.first} {this.props.name.last} <span onClick={() => this.props.onClick(this.props.index)}>
+                <h1>{this.props.name.first} {this.props.name.last} <span onClick={this.props.onClick}>
                     {(!this.props.collapsed) ? <FaAngleDown/> : <FaAngleUp/>}</span></h1>
 
                 {(this.props.collapsed) ?

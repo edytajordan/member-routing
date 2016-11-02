@@ -44,7 +44,7 @@ class Members extends Component {
                             gender={params.gender}
                             members={members}
                             onCollapse={this.viewChanger}
-                            collapsed={collapsed} />}
+                            collapsed={collapsed}/>}
         </div>
     }
 }

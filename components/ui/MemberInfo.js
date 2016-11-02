@@ -6,7 +6,7 @@ const MemberInfo = ({ members, onCollapse, collapsed }) => (
             {members.map((data, i) => <Member key={i}
                                               index={i}
                                               {...data}
-                                              onClick={() => onCollapse(i)}
+                                              onClick={(i) => onCollapse(i)}
                                               collapsed={collapsed}  />)}
         </div>
 )
