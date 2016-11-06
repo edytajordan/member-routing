@@ -3,7 +3,7 @@ import FaHome from 'react-icons/lib/fa/home'
 
 const MainMenu = () => {
     return (
-        <nav className="main-menu">
+        <nav>
             <Link to="/"><FaHome/></Link>
             <Link to="about" activeStyle={{backgroundColor: "white", color: "slategray"}}>About</Link>
             <Link to="members" activeStyle={{backgroundColor: "white", color: "slategray"}}>Members</Link>
@@ -11,4 +11,4 @@ const MainMenu = () => {
     )
 }
 
-module.exports = MainMenu
+export default MainMenu

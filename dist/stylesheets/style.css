@@ -10,7 +10,8 @@ html, body {
     display: flex;
 }
 
-#homepage {
+
+.home {
     display: flex;
     min-width: 100%;
     align-items: center;
@@ -18,28 +19,21 @@ html, body {
     flex-wrap: wrap;
 }
 
-.home-page-menu {
+.home > nav {
     display: flex;
-    flex-direction: row;
     background-color: #0C3B20;
-    color: white;
+    line-height: 4em;
+    flex-direction: row;
     min-width: 100%;
 }
 
-.home-page-menu>section {
-    padding-left: 2em;
-    padding-right: 2em;
+.home > nav > a {
+    flex-basis: calc(33.33% - 3em);
     flex-grow: 1;
+    color: white;
+    text-decoration: none;
+    font-size: 2em;
     text-align: center;
-
-}
-
-.home-page-menu > h1 {
-    flex-grow: 1;
-}
-
-.home-page-menu >h1:first-of-type {
-    padding-left: 2em;
 }
 
 #homebox {
@@ -56,88 +50,53 @@ html, body {
     opacity: 0.9;
 }
 
-aside {
-
-    background-color: #00d4b4;
-    border: 2px solid black;
-}
-
-.main-menu {
+.page>nav {
     display: flex;
-    flex-direction: column;
     background-color: #0C3B20;
-    color: white;
     line-height: 4em;
-    min-width: 20%;
-    height: 200px;
-}
-
-.main-menu a {
-    font-size: 1.5em;
-    text-decoration: none;
-    color: white;
-    text-align: center;
-    font-weight: bold;
-}
-
-.main-menu a:not(:first-child) {
-    border-top: 3px solid white;
-}
-
-ul>li {
-    padding-right: 2em;
-}
-
-nav ~ div {
-    display: flex;
     flex-direction: column;
-    flex-basis: 75%;
-    padding-left: 1em;
-    min-width: 60%;
 }
 
+.page > nav > a {
+    color: white;
+    text-decoration: none;
+    padding-left: 0.5em;
+}
 
-.member-info {
+.member-list {
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
     align-content: space-around;
 }
 
-.member-info > div {
+.member-list > h1, .member-list > span {
+    min-width: 100%;
+    padding-bottom: 1em;
+}
+
+.member {
+    flex-direction: row;
     flex-basis: calc(33.33% - 3em);
     flex-grow: 1;
 }
 
-.member-info > h1:first-of-type {
+.member > h1:first-of-type {
     font-weight: 100;
     flex-basis: 100%;
     font-size: 1.5em;
-}
-
-.member-info > div> img {
-    margin-right: 1em;
-}
-
-.member-info>div>h1 {
-    font-style: bold;
-    font-size: 1.5em;
     text-transform: capitalize;
-    color: darkgreen;
 }
 
-
-.about>p {
+.about > p {
     font-size: 1.3em;
 }
 
-.more {
-    height: 40px;
-    width: 100px;
-    position: fixed;
-    right: 0px;
-    top: 48%;
-    background-color: #006600;
-    color: white;
-
+.page {
+    display: flex;
+    flex-grow: 1;
 }
+
+.page > div {
+    margin: 0.5em;
+}
+

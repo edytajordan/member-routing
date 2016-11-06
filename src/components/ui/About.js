@@ -36,6 +36,6 @@ const About = () => (
            tristique mauris eu gravida.
        </p>
    </div>
-);
+)
 
-module.exports = About;
+export default About
