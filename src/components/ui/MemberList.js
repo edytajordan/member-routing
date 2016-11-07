@@ -50,7 +50,7 @@ class MemberList extends Component {
                 <h1>Society Members</h1>
 
                 {(loading) ?
-                    <span>[icon-rotate] loading...</span> :
+                    <span>loading...</span> :
                     <span>{members.length} members</span>
                 }
 

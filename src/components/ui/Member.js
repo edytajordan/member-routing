@@ -1,10 +1,11 @@
 import { PropTypes, Component } from 'react'
+import FaShield from 'react-icons/lib/fa/shield'
 
 class Member extends Component {
 
     componentWillMount() {
         this.style = {
-            backgroundColor: 'red'
+            backgroundColor: 'gainsboro'
         }
     }
 
@@ -13,7 +14,7 @@ class Member extends Component {
     }
 
     componentWillUpdate(nextProps) {
-        this.style = { backgroundColor: (nextProps.admin) ? 'gold' : 'yellow' }
+        this.style = { backgroundColor: (nextProps.admin) ? 'darkseagreen' : 'gold' }
     }
 
     componentDidUpdate(prevProps) {
@@ -25,10 +26,11 @@ class Member extends Component {
         return (
             <div className="member" style={this.style}>
                 {(admin) ?
-                    <a onClick={() => removeAdmin(email)}>Remove Admin</a> :
+                    <a onClick={() => removeAdmin(email)}>Remove Admin</a>
+                    :
                     <a onClick={() => makeAdmin(email)}>Make Admin</a>
                 }
-                <h1>{name}</h1>
+                <h1>{name}{ (admin) ? <FaShield/> : null }</h1>
                 <img src={thumbnail} alt="profile picture"/>
                 <p><a href={`mailto:${email}`}>{email}</a></p>
             </div>
